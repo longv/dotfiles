@@ -3,7 +3,7 @@
 git config --global user.name "longv"
 
 # COMMAND
-git config --global alias.stt status
-git config --global alias.logo "log --oneline --decorate"
-git config --global alias.ci commit
-git config --global alias.amend ci --amend
+git config --global --replace-all alias.stt status
+git config --global --replace-all alias.logo "log --oneline --decorate"
+git config --global --replace-all alias.ci commit
+git config --global --replace-all alias.amend "ci --amend"
