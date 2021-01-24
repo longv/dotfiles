@@ -25,9 +25,9 @@ set shiftwidth=4
 set smartindent
 
 " KEY MAPPING
-" Press \d to delete a whole line without cutting
-nnoremap <leader>d "_dd
-xnoremap <leader>d "_dd
+" Press \d to delete without cutting
+nnoremap <leader>d "_d
+xnoremap <leader>d "_d
 " Press Shift-j to move the current line down, or Shift-k to move it up
 nnoremap <S-j> :m .+1<CR>==
 nnoremap <S-k> :m .-2<CR>==
