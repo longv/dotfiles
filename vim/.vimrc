@@ -3,6 +3,8 @@ syntax on
 " USER INTERFACE
 " Color scheme
 colorscheme peachpuff
+" Show cmd
+set showcmd
 " Show line number
 set nu
 " Do not wrap line if it goes out of the screen
@@ -25,6 +27,7 @@ set shiftwidth=4
 set smartindent
 
 " KEY MAPPING
+let mapleader = " "
 " Press \d to delete without cutting
 nnoremap <leader>d "_d
 xnoremap <leader>d "_d
