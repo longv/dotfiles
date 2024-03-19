@@ -28,6 +28,9 @@ set smartindent
 
 " KEY MAPPING
 let mapleader = " "
+" Center screen after moving half pages
+nnoremap <C-u> <C-u>zz
+nnoremap <C-d> <C-d>zz
 " Press \d to delete without cutting
 nnoremap <leader>d "_d
 xnoremap <leader>d "_d
