@@ -6,7 +6,7 @@ colorscheme peachpuff
 " Show cmd
 set showcmd
 " Show line number
-set nu
+set nu rnu
 " Do not wrap line if it goes out of the screen
 set nowrap
 " Highlight the line where the cursor is
