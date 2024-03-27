@@ -13,6 +13,8 @@ set nowrap
 set cursorline
 " Show autocomplete menu for commands
 set wildmenu
+" Display real time search results
+set incsearch
 
 " INDENT
 " How many whitespaces a <Tab> is worth
