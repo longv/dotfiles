@@ -13,7 +13,6 @@ return {
     "L3MON4D3/LuaSnip",
     "rafamadriz/friendly-snippets",
   },
-
   config = function()
     local lsp_zero = require('lsp-zero')
 
