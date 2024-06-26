@@ -1,5 +1,3 @@
-neofetch
-
 # If you come from bash you might have to change your $PATH.
 export PATH=/opt/homebrew/bin:$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
@@ -40,3 +38,5 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 alias vim="nvim"
 alias vi="nvim"
+
+neofetch
