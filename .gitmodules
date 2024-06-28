@@ -1,6 +1,0 @@
-[submodule "nvim-config"]
-	path = nvim-config
-	url = https://github.com/longv/nvim-config.git
-[submodule "neofetch-config"]
-	path = neofetch-config
-	url = https://github.com/longv/neofetch-config.git
