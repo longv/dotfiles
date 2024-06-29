@@ -1,6 +1,0 @@
-require("longv.set")
-require("longv.remap")
-require("longv.lazy")
-require("longv.netrw")
-require("longv.autocmd")
-require("longv.godot")
