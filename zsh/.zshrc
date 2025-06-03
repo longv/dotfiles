@@ -9,7 +9,7 @@ if [ -f '/Users/longv/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/longv/goo
 ## The next line enables shell command completion for gcloud.
 if [ -f '/Users/longv/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/longv/google-cloud-sdk/completion.zsh.inc'; fi
 # zsh
-export ZSH="/Users/longv/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 
 # Theme
