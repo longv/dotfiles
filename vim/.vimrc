@@ -1,54 +1,64 @@
 syntax on
 
-" USER INTERFACE
-" Color scheme
-colorscheme peachpuff
-" Show cmd
-set showcmd
-" Show line number
-set nu rnu
-" Do not wrap line if it goes out of the screen
-set nowrap
-" Highlight the line where the cursor is
-set cursorline
-" Show autocomplete menu for commands
-set wildmenu
-" Display real time search results
-set incsearch
+" Enable line numbers and relative numbers
+set number
+set relativenumber
 
-" INDENT
-" How many whitespaces a <Tab> is worth
-set tabstop=4 
-" How many whitespaces a <Tab> keypress is worth
-set softtabstop=4
-" Use whitespaces instead of <Tab>
+" Show command in the status bar
+set showcmd
+
+" Highlight current cursor line
+set cursorline
+
+" Tab and indentation settings
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set expandtab
-" How many whitespaces a 'level of indentation' is work
-set shiftwidth=4
-" Do smart indent
 set smartindent
 
-" KEY MAPPING
-let mapleader = " "
-" Center screen after moving
+" Disable line wrapping
+set nowrap
+
+" Disable swap and backup files
+set noswapfile
+set nobackup
+set undodir=$HOME/.vim/undodir
+set undofile
+
+" Search settings
+set nohlsearch
+set incsearch
+
+" Enable true colors in terminal
+set termguicolors
+
+" Scrolling and UI settings
+set scrolloff=8
+set signcolumn=yes
+
+" Set leader key to space
+let mapleader=" "
+
+" Remap <C-e> to open file explorer
+nnoremap <C-e> :Ex<CR>
+
+" Center screen after jumping up/down
 nnoremap <C-u> <C-u>zz
 nnoremap <C-d> <C-d>zz
 nnoremap n nzzzv
 nnoremap N Nzzzv
-" Press \d to delete without cutting
+
+" Delete without copying to register
 nnoremap <leader>d "_d
-xnoremap <leader>d "_d
-" Press Shift-j to move the current line down, or Shift-k to move it up
-nnoremap <S-j> :m .+1<CR>==
-nnoremap <S-k> :m .-2<CR>==
-" After selecting a block, press Shift-j to move the whole block down, or press Shift-k to move it up
-vnoremap <S-j> :m '>+1<CR>gv=gv
-vnoremap <S-k> :m '<-2<CR>gv=gv
+vnoremap <leader>d "_d
+xnoremap <leader>p "_dP
 
-" FILES & BACKUP
-set nobackup
-set noswapfile
+" Move lines up and down
+nnoremap J :m .+1<CR>==
+nnoremap K :m .-2<CR>==
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 
-" PERFORMANCE
-" Don't update screen during macro or script execution
-set lazyredraw
+" Search and replace word under cursor
+nnoremap <leader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>

@@ -1,22 +1,16 @@
-# If you come from bash you might have to change your $PATH.
-export PATH=/opt/homebrew/bin:$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-# Path to your oh-my-zsh installation.
-export ZSH="/Users/longv/.oh-my-zsh"
-# go
-export PATH=/usr/local/go/bin:~/go/bin:$PATH
-# jenv (manage Java versions)
-export PATH=$HOME/.jenv/bin:$PATH
-eval "$(jenv init -)"
-# pipenv
-PYTHON_BIN_PATH="$(python3 -m site --user-base)/bin"
-export PATH=$(python3 -m site --user-base)/bin:$PATH
-# k8s
-export KUBECONFIG="/Users/longv/.lima/k8s/copied-from-guest/kubeconfig.yaml"
+eval "$(/opt/homebrew/bin/brew shellenv)"
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 # gcloud CLI
-# The next line updates PATH for the Google Cloud SDK.
+## The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/longv/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/longv/google-cloud-sdk/path.zsh.inc'; fi
-# The next line enables shell command completion for gcloud.
+## The next line enables shell command completion for gcloud.
 if [ -f '/Users/longv/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/longv/google-cloud-sdk/completion.zsh.inc'; fi
+# zsh
+export ZSH="/Users/longv/.oh-my-zsh"
+
 
 # Theme
 ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -29,14 +23,27 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions tmux)
+plugins=(
+  zsh-syntax-highlighting
+  zsh-autosuggestions
+  tmux
+  git
+  kubectl
+  virtualenv
+)
 
 ZSH_TMUX_AUTOSTART=true
 
 source $ZSH/oh-my-zsh.sh
 
+
 # User configuration
 alias vim="nvim"
 alias vi="nvim"
+
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
+
 
 neofetch
