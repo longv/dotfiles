@@ -1,16 +1,8 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-# gcloud CLI
-## The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/longv/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/longv/google-cloud-sdk/path.zsh.inc'; fi
-## The next line enables shell command completion for gcloud.
-if [ -f '/Users/longv/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/longv/google-cloud-sdk/completion.zsh.inc'; fi
+
+
 # zsh
 export ZSH="$HOME/.oh-my-zsh"
-
 
 # Theme
 ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -37,13 +29,24 @@ ZSH_TMUX_AUTOSTART=true
 source $ZSH/oh-my-zsh.sh
 
 
-# User configuration
+# Aliases
 alias vim="nvim"
 alias vi="nvim"
 
 
+# Congiguration
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# gcloud CLI
+## The next line updates PATH for the Google Cloud SDK.
+# if [ -f '/Users/longv/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/longv/google-cloud-sdk/path.zsh.inc'; fi
+## The next line enables shell command completion for gcloud.
+# if [ -f '/Users/longv/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/longv/google-cloud-sdk/completion.zsh.inc'; fi
+
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
-
 
 neofetch
