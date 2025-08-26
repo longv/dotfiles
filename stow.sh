@@ -8,7 +8,7 @@ PACKAGES=(zsh git nvim tmux neofetch vim)
 
 for pkg in "${PACKAGES[@]}"; do
   echo "Stowing $pkg..."
-  stow -R "$pkg"
+  stow -R -t "$HOME" "$pkg"
 done
 
 echo "✅ All configs stowed"
