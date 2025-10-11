@@ -8,6 +8,7 @@ return {
     ensure_installed = {
       "lua_ls",
       "gopls",
+      "buf_ls",
     },
   },
 }

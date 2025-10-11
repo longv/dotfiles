@@ -23,6 +23,7 @@ return {
       "markdown",
       "markdown_inline",
       "printf",
+      "proto",
       "python",
       "query",
       "regex",
