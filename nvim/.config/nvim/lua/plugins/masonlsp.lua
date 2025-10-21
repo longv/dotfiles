@@ -9,7 +9,7 @@ return {
       "lua_ls",
       "gopls",
       "buf_ls",
-      "pyright",
+      "basedpyright",
     },
   },
 }
