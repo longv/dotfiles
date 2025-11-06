@@ -42,10 +42,10 @@ eval "$(pyenv init -)"
 # go
 export PATH="$PATH:$(go env GOPATH)/bin"
 # postgresql
-export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
-export LDFLAGS="-L/opt/homebrew/opt/postgresql@15/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/postgresql@15/include"
-export PKG_CONFIG_PATH="/opt/homebrew/opt/postgresql@15/lib/pkgconfig"
+export PATH="/opt/homebrew/opt/postgresql@18/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/postgresql@18/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/postgresql@18/include"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/postgresql@18/lib/pkgconfig"
 
 # gcloud CLI
 ## The next line updates PATH for the Google Cloud SDK.
