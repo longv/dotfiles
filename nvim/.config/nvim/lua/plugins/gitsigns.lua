@@ -85,13 +85,6 @@ return {
       end,
       desc = "Git: Diff With ~",
     },
-    {
-      "<leader>gd",
-      function()
-        require("gitsigns").preview_hunk_inline()
-      end,
-      desc = "Git: Toggle Deleted (Deprecated)",
-    },
 
     -- Visual mode mappings
     {
