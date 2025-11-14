@@ -76,7 +76,7 @@ return {
       function()
         require("gitsigns").diffthis()
       end,
-      desc = "git: diff this",
+      desc = "Git: diff this",
     },
     {
       "<leader>gD",
