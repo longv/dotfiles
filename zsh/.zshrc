@@ -39,6 +39,9 @@ alias vi="nvim"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+# jenv
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
 # go
 export PATH="$PATH:$(go env GOPATH)/bin"
 # postgresql

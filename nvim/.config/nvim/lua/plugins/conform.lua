@@ -5,7 +5,7 @@ return {
       json = { "jq" },
       jsonc = { "jq" },
       lua = { "stylua" },
-      python = { "isort", "black" },
+      python = { "black" },
       javascript = { "prettier" },
       typescript = { "prettier" },
     },
