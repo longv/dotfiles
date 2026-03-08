@@ -10,6 +10,7 @@ return {
       "gopls",
       "buf_ls",
       "basedpyright",
+      "ts_ls",
     },
   },
 }
