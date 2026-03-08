@@ -1,3 +1,4 @@
+-- Godot Lsp
 local uv = vim.loop
 local pipepath = vim.fn.stdpath("cache") .. "/server.pipe"
 
