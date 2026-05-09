@@ -35,6 +35,7 @@ return {
       "xml",
       "yaml",
       "gdscript",
+      "latex",
     },
     incremental_selection = {
       enable = true,
