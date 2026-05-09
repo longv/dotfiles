@@ -14,8 +14,15 @@ vim.diagnostic.config({
   },
 })
 
-vim.g.python3_host_prog = vim.fn.expand("~/.virtualenvs/nvim/bin/python3")
 vim.g.lazyvim_picker = "telescope"
+
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
 
 -- Auto reload files when changed externally
 vim.opt.autoread = true
+
+-- LazyVim auto format
+vim.g.autoformat = true
+
+vim.g.python3_host_prog = vim.fn.expand("~/.virtualenvs/nvim/bin/python3")
