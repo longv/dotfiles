@@ -11,6 +11,7 @@ return {
       "buf_ls",
       "basedpyright",
       "ts_ls",
+      "r_language_server",
     },
   },
 }
