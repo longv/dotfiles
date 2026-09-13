@@ -71,21 +71,6 @@ return {
       end,
       desc = "Git: Toggle Line Blame",
     },
-    {
-      "<leader>gd",
-      function()
-        require("gitsigns").diffthis()
-      end,
-      desc = "Git: diff this",
-    },
-    {
-      "<leader>gD",
-      function()
-        require("gitsigns").diffthis("~")
-      end,
-      desc = "Git: Diff With ~",
-    },
-
     -- Visual mode mappings
     {
       "<leader>gs",
