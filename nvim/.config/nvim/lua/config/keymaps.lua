@@ -25,7 +25,8 @@ vim.keymap.set("n", "<C-j>", function() require("smart-splits").move_cursor_down
 vim.keymap.set("n", "<C-k>", function() require("smart-splits").move_cursor_up() end, { desc = "Go to Upper Window/Pane" })
 vim.keymap.set("n", "<C-l>", function() require("smart-splits").move_cursor_right() end, { desc = "Go to Right Window/Pane" })
 
-vim.keymap.set("n", "<C-Up>", function() require("smart-splits").resize_up() end, { desc = "Increase Window/Pane Height" })
-vim.keymap.set("n", "<C-Down>", function() require("smart-splits").resize_down() end, { desc = "Decrease Window/Pane Height" })
-vim.keymap.set("n", "<C-Left>", function() require("smart-splits").resize_left() end, { desc = "Decrease Window/Pane Width" })
-vim.keymap.set("n", "<C-Right>", function() require("smart-splits").resize_right() end, { desc = "Increase Window/Pane Width" })
+-- Resize via Option+hjkl (macOS claims Ctrl+Arrow for Mission Control)
+vim.keymap.set("n", "<M-k>", function() require("smart-splits").resize_up() end, { desc = "Increase Window/Pane Height" })
+vim.keymap.set("n", "<M-j>", function() require("smart-splits").resize_down() end, { desc = "Decrease Window/Pane Height" })
+vim.keymap.set("n", "<M-h>", function() require("smart-splits").resize_left() end, { desc = "Decrease Window/Pane Width" })
+vim.keymap.set("n", "<M-l>", function() require("smart-splits").resize_right() end, { desc = "Increase Window/Pane Width" })
