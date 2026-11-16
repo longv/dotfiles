@@ -1,0 +1,26 @@
+# Arch packages installed by bootstrap.sh (pacman -S --needed).
+# One package per line; '#' starts a comment.
+
+# Dotfiles tooling
+stow
+git
+zsh
+tmux
+neovim
+
+# Hyprland desktop (programs referenced in hypr/.config/hypr/hyprland.lua)
+hyprland
+hyprpaper
+waybar
+wofi
+kitty
+dolphin
+firefox
+wireplumber      # wpctl (volume keys)
+brightnessctl    # brightness keys
+
+# Hyprland "must-have" services (https://wiki.hypr.land/Useful-Utilities/Must-have/)
+hyprpolkitagent              # GUI password prompts for privileged actions
+xdg-desktop-portal-hyprland  # screen sharing, file pickers
+gnome-keyring                # secret storage (git credentials via libsecret)
+libsecret

@@ -24,6 +24,11 @@ local browser     = "firefox"
 ---- AUTOSTART ----
 -------------------
 hl.on("hyprland.start", function()
+    -- Export WAYLAND_DISPLAY etc. to D-Bus/systemd so gnome-keyring prompts,
+    -- portals and the polkit agent can open windows in this session.
+    hl.exec_cmd("dbus-update-activation-environment --systemd --all")
+    -- Polkit authentication agent (GUI password prompts for privileged actions)
+    hl.exec_cmd("systemctl --user start hyprpolkitagent")
     hl.exec_cmd("waybar & hyprpaper")
 end)
 

@@ -20,10 +20,12 @@ install_prereqs_macos() {
 }
 
 install_prereqs_arch() {
-  if ! command -v stow >/dev/null 2>&1; then
-    echo "📦 Installing GNU stow..."
-    sudo pacman -S --needed stow
-  fi
+  local list="$DOTFILES/pkglist-arch.txt"
+  local pkgs
+  # Strip comments and blank lines from the package list
+  mapfile -t pkgs < <(sed -e 's/#.*//' -e 's/[[:space:]]*$//' -e '/^$/d' "$list")
+  echo "📦 Installing ${#pkgs[@]} Arch packages from pkglist-arch.txt..."
+  sudo pacman -S --needed "${pkgs[@]}"
 }
 
 case "$OS" in
