@@ -1,7 +1,24 @@
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# Layout:
+#   ~/.config/zsh/os/<platform>.zsh  platform-specific setup (macos, arch, ...)
+#   ~/.config/zsh/tools.zsh          language/tool setup, each guarded on the tool existing
+#   ~/.config/zsh/pyenv.zsh          venv helper functions
 
+ZSH_CONFIG="$HOME/.config/zsh"
 
-# OhMyZsh
+# --- Platform ---
+case "$OSTYPE" in
+  darwin*) DOTFILES_OS=macos ;;
+  linux*)
+    DOTFILES_OS=linux
+    if [[ -r /etc/os-release ]]; then
+      DOTFILES_OS="$(. /etc/os-release; [[ "$ID" == arch || " $ID_LIKE " == *" arch "* ]] && echo arch || echo "${ID:-linux}")"
+    fi
+    ;;
+  *) DOTFILES_OS=unknown ;;
+esac
+[[ ! -r "$ZSH_CONFIG/os/$DOTFILES_OS.zsh" ]] || source "$ZSH_CONFIG/os/$DOTFILES_OS.zsh"
+
+# --- OhMyZsh ---
 export ZSH="$HOME/.oh-my-zsh"
 # Theme
 ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -14,50 +31,30 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 # Utils
-[[ ! -f ~/.config/zsh/pyenv.zsh ]] || source ~/.config/zsh/pyenv.zsh
+[[ ! -f "$ZSH_CONFIG/pyenv.zsh" ]] || source "$ZSH_CONFIG/pyenv.zsh"
 # Plugins
 plugins=(
   zsh-syntax-highlighting
   zsh-autosuggestions
-  tmux
   git
   kubectl
   virtualenv
 )
-ZSH_TMUX_AUTOSTART=true
+if (( $+commands[tmux] )); then
+  plugins+=(tmux)
+  ZSH_TMUX_AUTOSTART=true
+fi
 
 source $ZSH/oh-my-zsh.sh
 
 
-# Aliases
+# --- Aliases ---
 alias vim="nvim"
 alias vi="nvim"
 
 
-# Congiguration
+# --- Configuration ---
 export PATH="$HOME/.local/bin:$PATH"
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-# jenv
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
-# go
-export PATH="$PATH:$(go env GOPATH)/bin"
-# postgresql
-export PATH="/opt/homebrew/opt/postgresql@18/bin:$PATH"
-export LDFLAGS="-L/opt/homebrew/opt/postgresql@18/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/postgresql@18/include"
-export PKG_CONFIG_PATH="/opt/homebrew/opt/postgresql@18/lib/pkgconfig"
+[[ ! -r "$ZSH_CONFIG/tools.zsh" ]] || source "$ZSH_CONFIG/tools.zsh"
 
-# gcloud CLI
-## The next line updates PATH for the Google Cloud SDK.
-# if [ -f '/Users/longv/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/longv/google-cloud-sdk/path.zsh.inc'; fi
-## The next line enables shell command completion for gcloud.
-# if [ -f '/Users/longv/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/longv/google-cloud-sdk/completion.zsh.inc'; fi
-
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /opt/homebrew/bin/terraform terraform
-
-neofetch
+(( ! $+commands[neofetch] )) || neofetch
